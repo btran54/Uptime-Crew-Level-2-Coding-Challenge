@@ -22,18 +22,15 @@ def print_completion(actor):
 def verify_containers(source, destination):
     checks = []
     
-    # Check if the length matches
     length_match = len(source) == len(destination)
     checks.append(("Length match", length_match, 
                    f"{len(source)} elements" if length_match else 
                    f"Source: {len(source)}, Destination: {len(destination)}"))
     
-    # Check if the order is preserved
     order_preserved = source == destination
     checks.append(("Elements in order", order_preserved, 
                    "All correct" if order_preserved else "Mismatches found"))
     
-    # Check if all elements are present
     all_present = sorted(source) == sorted(destination)
     checks.append(("All elements present", all_present,
                    "Complete" if all_present else "Missing or duplicated"))

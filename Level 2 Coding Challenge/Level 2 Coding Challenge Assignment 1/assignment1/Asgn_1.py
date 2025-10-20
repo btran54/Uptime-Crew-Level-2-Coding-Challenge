@@ -35,7 +35,7 @@ def calculate_group_statistics(df_csv, group_column, value_column, total_value):
 
 def analyze_shopping_data(file_path='customer_shopping_data.csv'):
     
-    # Task 1: Read CSV with optimized datatypes
+    # Task 1: Read CSV with explicit datatypes
     dtypes = {
         'invoice_no': 'string',
         'customer_id': 'string',
