@@ -13,7 +13,6 @@ class TestProducerConsumer(unittest.TestCase):
         Helper method to run producer-consumer and capture output
         Returns: (ProducerConsumer instance, output string)
         """
-        # Capture stdout to reduce test output clutter
         output = io.StringIO()
         with redirect_stdout(output):
             pc = ProducerConsumer(source_data)
@@ -29,7 +28,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 10, "Source should have 10 elements")
         self.assertEqual(len(pc.destination_container), 10, "Destination should have 10 elements")
@@ -44,7 +42,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 9, "Source should have 9 elements")
         self.assertEqual(len(pc.destination_container), 9, "Destination should have 9 elements")
@@ -59,7 +56,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 3, "Source should have 3 elements")
         self.assertEqual(len(pc.destination_container), 3, "Destination should have 3 elements")
@@ -74,7 +70,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 100, "Source should have 100 elements")
         self.assertEqual(len(pc.destination_container), 100, "Destination should have 100 elements")
@@ -89,7 +84,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass for empty list")
         self.assertEqual(len(pc.source_container), 0, "Source should be empty")
         self.assertEqual(len(pc.destination_container), 0, "Destination should be empty")
@@ -103,7 +97,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 1, "Source should have 1 element")
         self.assertEqual(len(pc.destination_container), 1, "Destination should have 1 element")
@@ -119,7 +112,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 2, "Source should have 2 elements")
         self.assertEqual(len(pc.destination_container), 2, "Destination should have 2 elements")
@@ -134,7 +126,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(pc.source_container, pc.destination_container, "All integers should transfer")
         self.assertTrue(all(isinstance(x, int) for x in pc.destination_container), 
@@ -148,7 +139,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(pc.source_container, pc.destination_container, "All floats should transfer")
         self.assertTrue(all(isinstance(x, float) for x in pc.destination_container), 
@@ -162,7 +152,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(pc.source_container, pc.destination_container, 
                         "Negative numbers should transfer correctly")
@@ -175,7 +164,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(pc.source_container, pc.destination_container, 
                         "Duplicates should be preserved")
@@ -190,7 +178,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(len(pc.source_container), 1000, "Source should have 1000 elements")
         self.assertEqual(len(pc.destination_container), 1000, "Destination should have 1000 elements")
@@ -205,7 +192,6 @@ class TestProducerConsumer(unittest.TestCase):
         
         pc, output, success = self.run_producer_consumer(source_data)
         
-        # Assertions
         self.assertTrue(success, "Verification should pass")
         self.assertEqual(pc.source_container, pc.destination_container, 
                         "Extreme values should transfer correctly")
